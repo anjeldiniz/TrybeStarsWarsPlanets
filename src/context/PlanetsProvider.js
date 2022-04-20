@@ -11,7 +11,7 @@ function PlanetsProvider({ children }) {
       const resultApiResponse = await fetchPlanetas();
       console.log(resultApiResponse);
       setResultApi(resultApiResponse.results);
-    }
+    };
     fetchResultApi();
   }, []);
 
