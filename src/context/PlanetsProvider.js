@@ -5,11 +5,12 @@ import fetchPlanetas from '../api/planetsApi';
 
 function PlanetsProvider({ children }) {
   const [resultApi, setResultApi] = useState();
+  const [valueInp, setValueInp] = useState({ name: '' });
 
   useEffect(() => {
     const fetchResultApi = async () => {
       const resultApiResponse = await fetchPlanetas();
-      console.log(resultApiResponse);
+      // console.log(resultApiResponse);
       setResultApi(resultApiResponse.results);
     };
     fetchResultApi();
@@ -17,6 +18,8 @@ function PlanetsProvider({ children }) {
 
   const contextValue = {
     resultApi,
+    valueInp,
+    setValueInp,
   };
 
   return (
