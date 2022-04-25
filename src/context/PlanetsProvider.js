@@ -6,6 +6,7 @@ import fetchPlanetas from '../api/planetsApi';
 function PlanetsProvider({ children }) {
   const [resultApi, setResultApi] = useState();
   const [valueInp, setValueInp] = useState({ name: '' });
+  const [filterByNumericValues, setFilterByNumericValues] = useState([]);
 
   useEffect(() => {
     const fetchResultApi = async () => {
@@ -18,8 +19,11 @@ function PlanetsProvider({ children }) {
 
   const contextValue = {
     resultApi,
+    setResultApi,
     valueInp,
     setValueInp,
+    filterByNumericValues,
+    setFilterByNumericValues,
   };
 
   return (
