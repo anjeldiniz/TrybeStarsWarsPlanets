@@ -7,6 +7,13 @@ function PlanetsProvider({ children }) {
   const [resultApi, setResultApi] = useState();
   const [valueInp, setValueInp] = useState({ name: '' });
   const [filterByNumericValues, setFilterByNumericValues] = useState([]);
+  const [optionColumn, setOptionColumn] = useState([
+    'population',
+    'orbital_period',
+    'diameter',
+    'rotation_period',
+    'surface_water',
+  ]);
 
   useEffect(() => {
     const fetchResultApi = async () => {
@@ -24,6 +31,8 @@ function PlanetsProvider({ children }) {
     setValueInp,
     filterByNumericValues,
     setFilterByNumericValues,
+    optionColumn,
+    setOptionColumn,
   };
 
   return (
