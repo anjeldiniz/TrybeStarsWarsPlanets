@@ -5,7 +5,7 @@ function Table() {
   const { resultApi, valueInp } = useContext(PlanetsContext);
 
   return (
-    <div>
+    <div className="tableFather">
       <table>
         <thead>
           <tr>

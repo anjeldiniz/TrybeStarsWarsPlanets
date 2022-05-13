@@ -1,41 +1,92 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  font-family: -apple-system , Roboto , Ubuntu , Open Sans , Helvetica Neue , sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+::selection {
+  background-color: var rgb(253, 219, 0);
 }
 
-@media ( prefers-reduced-motion : no-preference ) {
-
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-image: url('./image/back.webp');
+  background-size: 100vw;
+  color: aliceblue;
 }
 
-.App-header {
+img {
+  height: 500px;
+  margin-bottom: 0;
+  margin-left: 100px;
+  width: 500px;
+}
+
+.header {
   align-items: center;
-  background-color: #282c34;
-  color: white;
   display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
+  flex-direction: row;
+  height: 20vh;
+  justify-content: space-evenly;
+}
+
+.btn {
+  background-color: #021c2b;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 26px;
+  margin: 4px 2px;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.inputs {
+  align-content: center;
+  display: flex;
+  font-size: 30px;
+  height: 4vh;
+  margin-top: 0;
+  width: 300px;
+}
+
+.tableFather {
+  align-items: center;
+  display: flex;
+  height: 100vh;
   justify-content: center;
-  min-height: 100vh;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+table {
+  border-collapse: collapse;
+  color: #000318;
+  font-family: Arial , Helvetica , sans-serif;
+  font-size: 170%;
+  height: 100vh;
+  text-align: center;
+  width: 80%;
 }
 
-@keyframes App-logo-spin {
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
 
-  from {
-    transform: rotate(0deg);
-  }
+table tr:nth-child( even ) {
+  background-color: rgba(255, 252, 252, 0.238);
+}
 
-  to {
-    transform: rotate(360deg);
-  }
+table tr:hover {
+  background-color: #ddd;
+}
+
+table th {
+  background-color: #000318;
+  color: white;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  text-align: center;
 }

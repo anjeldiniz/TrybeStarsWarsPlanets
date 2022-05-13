@@ -19,10 +19,10 @@ function Filter() {
 
   function handleClickFilter() {
     const { column, comparison, value } = newState;
-    setFilterByNumericValues((previus) => ([...previus, newState]));
+    setFilterByNumericValues((previus) => [...previus, newState]);
     setOptionColumn(optionColumn.filter((option) => option !== column));
     setNewState({ comparison: 'maior que', value: 0 });
-    setResultApi((planets) => (planets?.filter((planet) => {
+    setResultApi((planets) => planets?.filter((planet) => {
       if (comparison === 'maior que') {
         return planet[column] > Number(value);
       }
@@ -30,14 +30,13 @@ function Filter() {
         return planet[column] < Number(value);
       }
       return planet[column] === value;
-    })));
+    }));
   }
 
   function handleChange({ target }) {
     const { name, value } = target;
     console.log(value);
-    setNewState((statePrevious) => ({ ...statePrevious,
-      [name]: value }));
+    setNewState((statePrevious) => ({ ...statePrevious, [name]: value }));
   }
 
   useEffect(() => {
@@ -45,11 +44,12 @@ function Filter() {
   }, [newState]);
 
   return (
-    <>
+    <div className="header">
+      <img src="./logo.png" alt="startWars" />
+      <h1>Encontre seu Planeta Favorito:</h1>
       <label htmlFor="filterName">
-        Projeto Start Wars - Trybe
-        <br />
         <input
+          className="inputs"
           data-testid="name-filter"
           type="text"
           id="filterName"
@@ -57,11 +57,9 @@ function Filter() {
           onChange={ (e) => setValueInp({ name: e.target.value }) }
         />
       </label>
-      <br />
       <label htmlFor="coluna">
-        Coluna
-        <br />
         <select
+          className="inputs"
           data-testid="column-filter"
           value={ newState.column }
           name="column"
@@ -69,26 +67,15 @@ function Filter() {
           onChange={ handleChange }
         >
           {optionColumn.map((el, index) => (
-            <option
-              id="coluna"
-              key={ index }
-              value={ el }
-            >
-              { el }
+            <option id="coluna" key={ index } value={ el }>
+              {el}
             </option>
           ))}
-          {/* <option value="population">population</option>
-          <option value="orbital_period">orbital_period</option>
-          <option value="diameter">diameter</option>
-          <option value="rotation_period">rotation_period</option>
-          <option value="surface_water">surface_water</option> */}
         </select>
       </label>
-      <br />
       <label htmlFor="operador">
-        Operador
-        <br />
         <select
+          className="inputs"
           data-testid="comparison-filter"
           value={ newState.comparison }
           name="comparison"
@@ -99,9 +86,9 @@ function Filter() {
           <option value="igual a">igual a</option>
         </select>
       </label>
-      <br />
       <label htmlFor="filter">
         <input
+          className="inputs"
           data-testid="value-filter"
           type="number"
           id="filternumber"
@@ -110,15 +97,15 @@ function Filter() {
           onChange={ handleChange }
         />
       </label>
-      <br />
       <button
+        className="btn"
         data-testid="button-filter"
         type="button"
         onClick={ handleClickFilter }
       >
         Filtrar
       </button>
-    </>
+    </div>
   );
 }
 
